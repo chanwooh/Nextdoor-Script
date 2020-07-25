@@ -11,6 +11,12 @@ from lxml import html
 import requests
 import json
 
+from dotenv import load_dotenv
+import os
+
+# Load ability to use .env
+load_dotenv()
+
 # Set up driver options
 capa = DesiredCapabilities.CHROME
 capa["pageLoadStrategy"] = "none"
@@ -25,8 +31,8 @@ time.sleep(10)
 username = driver.find_element_by_id("id_email")
 password = driver.find_element_by_id("id_password")
 
-username.send_keys("<Username>") # Put your username in place of <Username>
-password.send_keys("<Password>") # Put your password in place of <Password>
+username.send_keys(os.getenv("email")) # Retrieved from .env file
+password.send_keys(os.getenv("password")) # Retrieved from .env file
 driver.find_element_by_xpath('//button[@id="signin_button"]').click()
 time.sleep(10) # if not scrolling in time, make this number larger
 
@@ -38,7 +44,7 @@ except:
 
 # Use Selenium to scroll 'range' number of times
 # Change the second number in 'range(x, y)' to determine how many times you want it to scroll down.
-for i in range(1, 25):
+for i in range(1, 2):
 	
 	driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 	time.sleep(3)
