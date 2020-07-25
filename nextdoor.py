@@ -22,7 +22,7 @@ capa = DesiredCapabilities.CHROME
 capa["pageLoadStrategy"] = "none"
 
 # Set up driver
-driver = webdriver.Chrome(desired_capabilities=capa, executable_path='/Users/charliehwang/Desktop/Nextdoor-Script/chromedriver')
+driver = webdriver.Chrome(desired_capabilities=capa, executable_path=os.getenv("chromedriver_path"))
 driver.get("https://nextdoor.com/login/")
 
 time.sleep(10)
