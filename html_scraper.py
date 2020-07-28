@@ -18,7 +18,7 @@ import os
 load_dotenv()
 
 # Open local html file
-with open(os.getenv("pyautogui_html"), "r", encoding="utf-8") as f:
+with open(os.getenv("selenium_html"), "r", encoding="utf-8") as f:
     page = f.read()
 tree = html.fromstring(page)
 postNodes = tree.xpath('//div[contains(@class, "css-aqcial")]')

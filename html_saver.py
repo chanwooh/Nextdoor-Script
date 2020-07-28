@@ -7,6 +7,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import sys
 import time
 import csv
+import random
 
 from lxml import html
 import requests
@@ -98,6 +99,5 @@ for i in range(1, 11):
 
 		# Try saving with selenium
 		path = os.getenv("selenium_html") + "scroll{}.html".format(i)
-		with open(path, "w") as f:
-    		f.write(driver.page_source)
-
+		with open(path, "w", encoding='utf-8') as f:
+			f.write(driver.page_source)
